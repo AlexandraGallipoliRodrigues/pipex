@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_free_matrix.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agallipo <agallipo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 10:35:00 by agallipo          #+#    #+#             */
-/*   Updated: 2022/02/09 13:09:45 by agallipo         ###   ########.fr       */
+/*   Created: 2022/02/08 17:33:04 by agallipo          #+#    #+#             */
+/*   Updated: 2022/02/09 11:53:45 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-int main(int argc, char **argv, char **env)
+void ft_free_matrix(char **mtrx)
 {
-	char	*c;
-	c = ft_command_env(env);
-	printf("%s\n", c);
-	c = ft_strjoin(c, argv[1]);
-	printf("%s\n", c);
-	execve(c, argv, env);
-	system("leaks pipex");
-	return (0);
+	int	i;
+
+	i = 0;
+	while (mtrx[i])
+	{
+		free(mtrx[i]);
+		i++;
+	}
+	free(mtrx);
 }

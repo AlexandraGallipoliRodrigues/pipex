@@ -6,15 +6,15 @@
 #    By: agallipo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 10:43:28 by agallipo          #+#    #+#              #
-#    Updated: 2022/02/07 11:26:46 by agallipo         ###   ########.fr        #
+#    Updated: 2022/02/08 16:18:27 by agallipo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = srcs/pipex.c
+SRCS = srcs/pipex.c srcs/env.c
 
 OBJS = ${SRCS:.c=.o}
 
-CFLAGS = -Wall -Wextra -Werror
+#CFLAGS = -Wall -Wextra -Werror
 
 INCLUDES = includes/
 
@@ -41,7 +41,7 @@ clean:
 fclean: clean
 
 			make -sC ${LIBFTDIR} fclean
-			${Rm} ${NAME}
+			${RM} ${NAME}
 
 re: fclean all
 

@@ -6,7 +6,7 @@
 #    By: agallipo <agallipo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/21 13:59:32 by agallipo          #+#    #+#              #
-#    Updated: 2021/06/22 20:08:19 by agallipo         ###   ########.fr        #
+#    Updated: 2022/02/08 17:36:08 by agallipo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SRCS	=	ft_atoi.c \
 			ft_strnstr.c \
 			ft_putnbr_base.c\
 			get_next_line.c\
+			ft_free_matrix.c\
 
 BONUS =		ft_lstnew.c \
 			ft_lstadd_front.c \

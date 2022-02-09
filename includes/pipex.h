@@ -6,7 +6,7 @@
 /*   By: agallipo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 10:41:20 by agallipo          #+#    #+#             */
-/*   Updated: 2022/02/07 12:49:16 by agallipo         ###   ########.fr       */
+/*   Updated: 2022/02/09 11:58:31 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,6 @@
 #include <errno.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+char	*ft_command_env(char **env);
+char	**ft_find_command(char **env);
 #endif
