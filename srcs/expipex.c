@@ -6,12 +6,19 @@
 /*   By: agallipo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 10:35:00 by agallipo          #+#    #+#             */
-/*   Updated: 2022/02/07 13:30:59 by agallipo         ###   ########.fr       */
+/*   Updated: 2022/02/14 11:08:00 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <string.h>
+#include <errno.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <sys/wait.h>
 int  main(void)
 {
 	int fd1[2]; //indice 0 extremo de lectura, 1 de escritura;

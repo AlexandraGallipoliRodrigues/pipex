@@ -6,15 +6,17 @@
 #    By: agallipo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 10:43:28 by agallipo          #+#    #+#              #
-#    Updated: 2022/02/08 16:18:27 by agallipo         ###   ########.fr        #
+#    Updated: 2022/02/14 11:21:28 by agallipo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = srcs/pipex.c srcs/env.c
+SRCS = srcs/pipex.c srcs/env.c srcs/pipe.c
 
 OBJS = ${SRCS:.c=.o}
 
-#CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Werror -Wextra #-fsanitize=address 
+
+CC = gcc
 
 INCLUDES = includes/
 
@@ -27,9 +29,8 @@ RM = rm -fr
 all:	 ${NAME}
 
 ${NAME}: ${OBJS}
-	make -sC ${LIBFTDIR}
-	cp ./libft/libft.a .
-	${CC} libft.a ${OBJS} -I ${INCLUDES} -o ${NAME}
+	make -C ${LIBFTDIR}
+	${CC} ${CFLAGS} ${OBJS} -I ${INCLUDES} -Llibft -lft -o ${NAME}
 
 %.o: %.c
 	${CC} ${CFLAGS} -I ${INCLUDES} -c $< -o $@

@@ -6,12 +6,14 @@
 /*   By: agallipo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 10:41:20 by agallipo          #+#    #+#             */
-/*   Updated: 2022/02/09 11:58:31 by agallipo         ###   ########.fr       */
+/*   Updated: 2022/02/10 20:00:22 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
+# define READ_END 0
+# define WRITE_END 1
 #include "../libft/libft.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,6 +24,7 @@
 #include <errno.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-char	*ft_command_env(char **env);
-char	**ft_find_command(char **env);
+char	*ft_env_path(char **env, char **argv);
+char	**ft_path_split(char **env);
+int		ft_pipe(char **argv, char **env, char *command, char **flags);
 #endif

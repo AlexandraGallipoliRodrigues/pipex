@@ -3,23 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agallipo <agallipo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agallipo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 10:35:00 by agallipo          #+#    #+#             */
-/*   Updated: 2022/02/09 13:09:45 by agallipo         ###   ########.fr       */
+/*   Created: 2022/02/10 14:01:50 by agallipo          #+#    #+#             */
+/*   Updated: 2022/02/11 11:42:51 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../includes/pipex.h"
 
 int main(int argc, char **argv, char **env)
 {
-	char	*c;
-	c = ft_command_env(env);
-	printf("%s\n", c);
-	c = ft_strjoin(c, argv[1]);
-	printf("%s\n", c);
-	execve(c, argv, env);
-	system("leaks pipex");
+	char	*command;
+	char	**flags;
+
+	argc = 0;
+	flags = ft_split(argv[1], ' ');
+	command = ft_env_path(env, flags);
+	ft_pipe(argv, env, command, flags);
+	//system("leaks -q pipex");
 	return (0);
 }
