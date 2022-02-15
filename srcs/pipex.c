@@ -6,7 +6,7 @@
 /*   By: agallipo <agallipo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 14:01:50 by agallipo          #+#    #+#             */
-/*   Updated: 2022/02/15 13:20:00 by agallipo         ###   ########.fr       */
+/*   Updated: 2022/02/15 13:26:11 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(int argc, char **argv, char **env)
 	if (argc < 4)
 		return (-1);
 	fd = open(argv[1], O_RDONLY);
-	fd2 = open(argv[4], O_CREAT | O_RDWR | O_TRUNC);
+	fd2 = open(argv[4], O_CREAT | O_RDWR | O_TRUNC, 0777);
 	if (fd < 0 || fd2 < 0)
 		return (-1);
 	argc = 0;
