@@ -6,7 +6,7 @@
 /*   By: agallipo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 10:41:20 by agallipo          #+#    #+#             */
-/*   Updated: 2022/02/10 20:00:22 by agallipo         ###   ########.fr       */
+/*   Updated: 2022/02/15 13:18:15 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@
 #include <fcntl.h>
 char	*ft_env_path(char **env, char **argv);
 char	**ft_path_split(char **env);
-int		ft_pipe(char **argv, char **env, char *command, char **flags);
+int		ft_pipe(char **argv, char **env, int fd, int fd2);
 #endif

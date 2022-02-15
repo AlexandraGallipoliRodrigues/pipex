@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agallipo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agallipo <agallipo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 14:16:08 by agallipo          #+#    #+#             */
-/*   Updated: 2022/02/11 11:44:28 by agallipo         ###   ########.fr       */
+/*   Updated: 2022/02/14 12:06:51 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-char	*ft_env_path(char **env, char **argv)
+char	*ft_env_path(char **env, char **flags)
 {
 	char	**path;
 	char	*cmd;
@@ -24,9 +24,9 @@ char	*ft_env_path(char **env, char **argv)
 	{
 		cmd = strdup(path[i]);
 		ft_strlcat(cmd, "/", ft_strlen(cmd) + 2);
-		ft_strlcat(cmd, argv[0], ft_strlen(cmd) + ft_strlen(argv[0]) + 1);
+		ft_strlcat(cmd, flags[0], ft_strlen(cmd) + ft_strlen(flags[0]) + 1);
 		if (access(cmd, X_OK | R_OK) == 0)
-			break ;
+			break ;//si no lo encuentra
 		free(cmd);
 		i++;
 	}
@@ -36,7 +36,7 @@ char	*ft_env_path(char **env, char **argv)
 
 char	**ft_path_split(char **env)
 {
-	char	**path;	
+	char	**path;
 	int		i;
 
 	i = 0;
