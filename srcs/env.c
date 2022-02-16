@@ -6,18 +6,20 @@
 /*   By: agallipo <agallipo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 14:16:08 by agallipo          #+#    #+#             */
-/*   Updated: 2022/02/14 12:06:51 by agallipo         ###   ########.fr       */
+/*   Updated: 2022/02/16 17:35:55 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-char	*ft_env_path(char **env, char **flags)
+char	*ft_env_path(char **env, char *argv, char **flags)
 {
 	char	**path;
 	char	*cmd;
 	int		i;
 
+	if (argv[0] == '/' && access(argv, X_OK | R_OK) == 0)
+		return (argv);
 	path = ft_path_split(env);
 	i = 0;
 	while (path[i])
@@ -26,12 +28,13 @@ char	*ft_env_path(char **env, char **flags)
 		ft_strlcat(cmd, "/", ft_strlen(cmd) + 2);
 		ft_strlcat(cmd, flags[0], ft_strlen(cmd) + ft_strlen(flags[0]) + 1);
 		if (access(cmd, X_OK | R_OK) == 0)
-			break ;//si no lo encuentra
-		free(cmd);
+			return (cmd);
 		i++;
 	}
+	free(cmd);
 	ft_free_matrix(path);
-	return (cmd);
+	printf("pipex: command not found: %s\n", argv);
+	return (0);
 }
 
 char	**ft_path_split(char **env)

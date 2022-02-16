@@ -6,13 +6,13 @@
 /*   By: agallipo <agallipo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 17:33:04 by agallipo          #+#    #+#             */
-/*   Updated: 2022/02/09 11:53:45 by agallipo         ###   ########.fr       */
+/*   Updated: 2022/02/16 17:33:03 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_free_matrix(char **mtrx)
+void	ft_free_matrix(char **mtrx)
 {
 	int	i;
 

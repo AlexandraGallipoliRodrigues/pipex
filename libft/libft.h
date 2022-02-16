@@ -6,7 +6,7 @@
 /*   By: agallipo <agallipo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 19:11:28 by agallipo          #+#    #+#             */
-/*   Updated: 2022/02/08 19:48:19 by agallipo         ###   ########.fr       */
+/*   Updated: 2022/02/16 17:34:52 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strdup(const char *s1);
 size_t	ft_strlcpy(char *dest, const char *src, size_t destsize);
 size_t	ft_strlcat(char *dest, const char *src, size_t destsize);
-char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_strtrim(char *s1, char *set);
 char	**ft_split(char const *s, char c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));

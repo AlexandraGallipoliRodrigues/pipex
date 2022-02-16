@@ -6,7 +6,7 @@
 #    By: agallipo <agallipo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/21 13:59:32 by agallipo          #+#    #+#              #
-#    Updated: 2022/02/08 17:36:08 by agallipo         ###   ########.fr        #
+#    Updated: 2021/12/01 15:19:56 by agallipo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,18 +63,18 @@ OBJS_B	= $(BONUS:.c=.o)
 NAME	= libft.a
 RM		= rm -f
 FLAGS	= -Wall -Wextra -Werror -c
-$(NAME):
-		@echo [Compilando...]
-		@gcc $(FLAGS) $(SRCS)
-		@ar rc $(NAME) $(OBJS)
-		@ranlib $(NAME)
-		@echo [Compilado.]
+$(NAME): $(SRCS)
+		echo [Compilando...]
+		gcc $(FLAGS) $(SRCS)
+		ar rc $(NAME) $(OBJS)
+		ranlib $(NAME)
+		echo [Compilado.]
 bonus:		$(OBJS) $(OBJS_B)
-			@echo [Compilando bonus...]
-			@gcc $(FLAGS) $(SRCS) $(BONUS)
-			@ar rc $(NAME) $(OBJS_B)
-			@ranlib $(NAME)
-			@echo [Compilados.]
+			echo [Compilando bonus...]
+			gcc $(FLAGS) $(SRCS) $(BONUS)
+			ar rc $(NAME) $(OBJS_B)
+			ranlib $(NAME)
+			echo [Compilados.]
 all:		$(NAME)
 clean:
 			$(RM) $(OBJS) $(OBJS_B)

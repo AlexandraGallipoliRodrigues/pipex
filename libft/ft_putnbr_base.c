@@ -3,25 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agallipo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agallipo <agallipo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 20:59:47 by agallipo          #+#    #+#             */
-/*   Updated: 2021/09/23 11:42:49 by agallipo         ###   ########.fr       */
+/*   Updated: 2022/02/16 17:33:59 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 int	find_error(char *base)
 {
@@ -39,11 +28,8 @@ int	find_error(char *base)
 		while (base[e] != '\0' && base[f] != '\0')
 		{
 			if ((base[e] == base[f] && e != f) || (base[f] == '+'\
-						 || base[f] == '-'))
-			{
+				|| base[f] == '-'))
 				return (1);
-				break ;
-			}
 			f++;
 		}
 		e++;

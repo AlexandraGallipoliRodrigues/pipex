@@ -6,7 +6,7 @@
 /*   By: agallipo <agallipo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 19:10:30 by agallipo          #+#    #+#             */
-/*   Updated: 2022/02/15 13:19:56 by agallipo         ###   ########.fr       */
+/*   Updated: 2022/02/16 17:39:15 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_frst_child(int *fd, char **argv, char **env, int fd2)
 	char	*command;
 
 	flags = ft_split(argv[2], ' ');
-	command = ft_env_path(env, flags);
+	command = ft_env_path(env, argv[2], flags);
 	dup2(fd2, STDIN_FILENO);
 	close(fd[READ_END]);
 	dup2(fd[WRITE_END], STDOUT_FILENO);
@@ -36,17 +36,16 @@ void	ft_bastards(int *fd, char **argv, char **env, int fd2)
 	close(fd[READ_END]);
 	dup2(fd2, STDOUT_FILENO);
 	flags = ft_split(argv[3], ' ');
-	command = ft_env_path(env, flags);
+	command = ft_env_path(env, argv[3], flags);
 	execve(command, flags, env);
 	ft_free_matrix(flags);
 }
-
 
 int	ft_pipe(char **argv, char **env, int fd, int fd2)
 {
 	int	fd1[2];
 	int	status;
-	int pid;
+	int	pid;
 
 	pipe(fd1);
 	pid = fork();
@@ -63,9 +62,5 @@ int	ft_pipe(char **argv, char **env, int fd, int fd2)
 	}
 	wait(&status);
 	wait(&status);
-
 	return (0);
 }
-
-
-
