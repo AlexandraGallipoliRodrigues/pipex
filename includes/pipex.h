@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agallipo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agallipo <agallipo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 10:41:20 by agallipo          #+#    #+#             */
-/*   Updated: 2022/02/16 17:32:13 by agallipo         ###   ########.fr       */
+/*   Updated: 2022/02/16 23:29:12 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@
 
 char	*ft_env_path(char **env, char *argv, char **flags);
 char	**ft_path_split(char **env);
-int		ft_pipe(char **argv, char **env, int fd, int fd2);
+int		ft_pipe(char **argv, char **env, int fd2);
 #endif
